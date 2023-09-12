@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>todolist</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <span class="text"><i class="fa-regular fa-calendar"></i> <a href="/">Today</a></span>
+                <span class="text"><i class="fa-regular fa-copy"></i> <a href="/work">Work</a></span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+                <button type="button" class="style"><span class="days"><%= Date %></span></button>
+                <form class="item" action="/submit" method="POST">
+                        <div class="flex">
+                            <input type="text" placeholder="Add items" name="title">
+                            <%if(locals.listTitle){%>   
+                                <button class ="submit" type="submit" name="list" value="<%= listTitle %>">+</button>
+                            <%}else{%> 
+                                <button class ="submit" type="submit" name="list">+</button>
+                            <% } %>
+                        </div>
+                </form>
+                <br>
+  
+    

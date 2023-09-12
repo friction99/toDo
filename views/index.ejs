@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %>
+<% if(locals.work){%>
+        <% work.forEach((item)=>{%>
+            <form action="delete" method="POST">
+                <div class="box">
+                    <input name="checkbox" type="checkbox" id="checkbox" value="<%=item.id%>" onChange="this.form.submit()">
+                    <p>
+                        <span class="task"><%=item.name%></span>
+                    </p>
+                </div>
+                <%if(locals.listTitle){%>
+                 <input type="hidden" name="list" value="<%= listTitle %>">
+               <%}%>
+            </form>
+        <%})%>
+<% }%>
+    <br>
+    <form class="item" action="/reset" method="POST">
+        <div class="flex">
+            <button class="style" type="submit" name="reset">RESET</button>
+        </div>
+    </form>
+</div>
+</main>
+<%- include("partials/footer.ejs") %>
